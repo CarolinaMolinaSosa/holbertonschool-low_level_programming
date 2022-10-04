@@ -1,10 +1,7 @@
 CC=gcc
 SRC= main.c school.c
-OBJ= main.o school.o
-NAME= 2-Makefile
+OBJ= $(SRC:.c=.o)
+NAME= school
 
-	${CC} -c -o main.o ${SRC}
-all:
-	${CC} -c -o school.o ${SRC}
-
-	${CC} ${SRC} ${OBJ} ${NAME} -o school
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
