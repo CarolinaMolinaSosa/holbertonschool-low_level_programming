@@ -1,6 +1,6 @@
 CC=gcc
 SRC= main.c school.c
-OBJ= school.o
+OBJ= main.o school.o
 NAME= 2-Makefile
 
 	${CC} -c -o main.o ${SRC}
