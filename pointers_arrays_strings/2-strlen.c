@@ -5,11 +5,14 @@
  *@s: s
  *
  */
+
 int _strlen(char *s)
 {
-	int c = 0;
+	int n = 0;
 
-	while (*s != '\0')
-		c++;
-	return (c);
+	while (*(s + n) != '\0')
+	{
+		n++;
+	}
+	return (n);
 }
