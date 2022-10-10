@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _strcat - pointer strcat
+ * _strcat - pinter
  * @dest: destiny
  * @src: source
- *
+ *Return: string dest
  */
 char *_strcat(char *dest, char *src)
 {
