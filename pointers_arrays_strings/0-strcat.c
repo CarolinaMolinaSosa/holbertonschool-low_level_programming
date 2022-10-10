@@ -7,17 +7,16 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int i = 0;
-	int j = 0;
+	int x, y;
 
-	for (; dest[i] != '\0'; i++)
-	{
-	}
+	for (x = 0; dest[x]; x++)
+	;
 
-	for (; src[j] != '\0'; j++)
+	for (y = 0; src[y]; y++)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[x] = src[y];
+		x++;
 	}
+	dest[x] = src[y];
 	return (dest);
 }
