@@ -1,37 +1,54 @@
 #include "main.h"
+
+int min(int a, int b);
+
 /**
- * string_nconcat - function that concatenate n chars the second string
- * @s1: pointer to a char
- * @s2: pointer to a char
- * @n: unsigned int
- * Return: h
+ * string_nconcat - concatenate two strings
+ * @s1: string 1
+ * @s2: string 2
+ * @n: max number of bytes to copy from s2
+ *
+ * Return: pointer to new space in memory w concatenated str
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
+	int i, j, m;
+	char *p;
 
-	unsigned int j;
+	if (s1 == NULL)
+		return (string_nconcat("", s2, n));
+	if (s2 == NULL)
+		return (string_nconcat(s1, "", n));
 
-	char *h = malloc(sizeof(char) * strlen(s1) + n);
+	for (i = 0; s1[i] != '\0'; i++)
+		continue;
+	for (j = 0; s2[j] != '\0'; j++)
+		continue;
 
-	if (strlen(s1) == 0 || strlen(s2) == 0)
-	{
-		if (s1 == 0)
-			s1 = "";
-		if (s2 == 0)
-			s2 = "";
-	}
-	if (h == NULL)
+	p = malloc(i + min(j, n) + 1);
+	if (p == NULL)
 		return (NULL);
-	if (h == 0)
-		return (NULL);
-	for (i = 0; i < strlen(s1); i++)
-		h[i] = s1[i];
-	if (n >= strlen(s2))
-		for (j = 0; j + i <= strlen(s1) + strlen(s2); j++)
-			h[j + strlen(s1)] = s2[j];
-	for (j = 0; j + i < strlen(s1) + n; j++)
-		h[strlen(s1) + j] = s2[j];
-	return (h);
+
+	for (m = 0; m < i; m++)
+		p[m] = s1[m];
+	for (m = 0; m < j && m < (int) n; m++)
+		p[i + m] = s2[m];
+	p[i + m] = '\0';
+	return (p);
+}
+
+/**
+ * min - return the min of two ints
+ * @a: int
+ * @b: int
+ *
+ * Return: min(a, b)
+ */
+
+int min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }
