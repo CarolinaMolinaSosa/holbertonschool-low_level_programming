@@ -2,8 +2,8 @@
 
 /**
  * add_dnodeint - function that add a new node ot de beginning of hte list.
- * @head: head 
- * @n: n 
+ * @head: head
+ * @n: n
  *
  * Return:  the address of the new element, or NULL if it failed.
  */
