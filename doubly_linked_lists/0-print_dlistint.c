@@ -4,7 +4,7 @@
  * print_dlistint - prints the elements of a dlistint_tlist
  * @h: name of the lists
  *
- * Rwturn: the number of nodes 
+ * Return: the number of nodes
  */
 size_t print_dlistint(const dlistint_t *h)
 {
