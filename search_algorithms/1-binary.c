@@ -9,31 +9,29 @@
  *
  * Return: -1
  */
+
 int binary_search(int *array, size_t size, int value)
 {
-	size_t min = 0;
-	size_t max = size - 1;
-	size_t i = 0;
+	int bol = 0, min = size / 2, max = size - 1;
+	int i;
 
-	while (min <= max)
+	if (!array)
+		return (-1);
+
+	while (bol <= max)
 	{
-		size_t mid = (min + max) / 2;
-
 		printf("Searching in array: ");
-		for (i = min; i <= max; i++)
-		{
-			if (i < max)
-				printf("%ld, ", i);
-			else
-				printf("%ld", i);
-		}
-		printf("\n");
-		if (value == array[mid])
-			return (mid);
-		if (value < array[mid])
-			max = mid - 1;
+		for (i = bol; i < max; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[i]);
+
+		min = (bol + max) / 2;
+		if (array[min] == value)
+			return (min);
+		else if (array[min] > value)
+			max = min - 1;
 		else
-			min = mid + 1;
+			bol = min + 1;
 	}
 	return (-1);
 }
